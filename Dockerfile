@@ -30,4 +30,4 @@ EXPOSE 5921
 
 USER app
 
-ENTRYPOINT ["/app/node"]
+ENTRYPOINT ["/app/gocron-node"]
