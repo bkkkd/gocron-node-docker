@@ -12,7 +12,7 @@ RUN git clone https://github.com/ouqiang/gocron.git \
     && cd gocron \
     && CGO_ENABLED=0 make node
 
-FROM alpine:3.12
+FROM ubuntu:focal
 
 RUN apk add --no-cache ca-certificates tzdata \
     && addgroup -S app \
