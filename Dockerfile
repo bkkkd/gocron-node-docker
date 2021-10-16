@@ -14,7 +14,7 @@ RUN git clone https://github.com/ouqiang/gocron.git \
 
 FROM ubuntu:focal
 
-RUN apk add --no-cache ca-certificates tzdata \
+RUN  \
     && addgroup -S app \
     && adduser -S -g app app
 
