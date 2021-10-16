@@ -15,13 +15,10 @@ RUN git clone https://github.com/ouqiang/gocron.git \
 FROM ubuntu:focal
 
 
-RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
 WORKDIR /app
 
 COPY --from=builder /app/gocron/bin/gocron-node .
 
-RUN chown -R app:app ./
 
 EXPOSE 5921
 
