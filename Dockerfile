@@ -14,8 +14,6 @@ RUN git clone https://github.com/ouqiang/gocron.git \
 
 FROM ubuntu:focal
 
-RUN   addgroup -S app \
-    && adduser -S -g app app
 
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
@@ -27,6 +25,5 @@ RUN chown -R app:app ./
 
 EXPOSE 5921
 
-USER app
 
 ENTRYPOINT ["/app/gocron-node"]
