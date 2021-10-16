@@ -14,8 +14,7 @@ RUN git clone https://github.com/ouqiang/gocron.git \
 
 FROM ubuntu:focal
 
-RUN  \
-    && addgroup -S app \
+RUN   addgroup -S app \
     && adduser -S -g app app
 
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
