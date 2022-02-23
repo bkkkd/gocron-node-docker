@@ -12,7 +12,7 @@ RUN git clone https://github.com/ouqiang/gocron.git \
     && cd gocron \
     && CGO_ENABLED=0 make node
 
-FROM ubuntu:focal
+FROM alpine:3.7
 
 
 WORKDIR /app
@@ -20,7 +20,15 @@ WORKDIR /app
 COPY --from=builder /app/gocron/bin/gocron-node .
 
 
+RUN apk add --no-cache ca-certificates tzdata \
+        && addgroup -S app \
+        && adduser -S -g app app \
+	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+        && chown -R app:app ./
+
 EXPOSE 5921
+
+USER app
 
 
 ENTRYPOINT ["/app/gocron-node"]
